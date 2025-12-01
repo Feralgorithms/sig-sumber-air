@@ -12,7 +12,7 @@ export default function Map({ waterSources, filters }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<L.Map | null>(null)
   const markersRef = useRef<L.Marker[]>([])
-  const heatLayerRef = useRef<any>(null)
+  const heatLayerRef = useRef<L.Layer | null>(null)
 
   // Initialize map
   useEffect(() => {
@@ -175,7 +175,7 @@ export default function Map({ waterSources, filters }: MapProps) {
         Math.min(source.capacity / 10, 1.5) // Normalize capacity for heat intensity
       ]) as [number, number, number][]
 
-      // @ts-ignore - leaflet.heat types
+      // @ts-expect-error - leaflet.heat doesn't have TypeScript definitions
       heatLayerRef.current = L.heatLayer(heatPoints, {
         radius: 30,
         blur: 20,

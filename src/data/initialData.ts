@@ -56,5 +56,33 @@ export const initialWaterSources: WaterSource[] = [
     address: "Desa Citta, Kecamatan Lilirilau",
     district: "Lilirilau",
     village: "Citta"
+  },
+   {
+    id: "5",
+    name: "Taman Wisata Alam Lejja (Sumber Utama)",
+    type: "mata_air",
+    latitude: -4.3649028, 
+    longitude: 119.8978028,
+    quality: "baik",
+    capacity: 200, 
+    populationServed: 5000, 
+    lastChecked: "2024-12-01",
+    address: "Kawasan Hutan Lindung, Desa Bulue, Kecamatan Marioriawa",
+    district: "Marioriawa",
+    village: "Bulue[citation:2][citation:4]"
+  },
+  {
+    id: "6",
+    name: "Mata Air Ompō",
+    type: "mata_air",
+    latitude: -4.380,
+    longitude: 119.882,
+    quality: "baik",
+    capacity: 20,
+    populationServed: 1200,
+    lastChecked: "2024-10-15",
+    address: "Permandian Alam Ompō",
+    district: "Lalabata",
+    village: "Watansoppeng"
   }
 ]

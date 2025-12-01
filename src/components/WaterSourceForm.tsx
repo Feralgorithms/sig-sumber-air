@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Save, MapPin, AlertCircle, Check } from 'lucide-react'
-import { WaterSource } from '../types'
+import { WaterSource, WaterSourceType, WaterQuality } from '../types'
 
 interface WaterSourceFormProps {
   onAddWaterSource: (source: WaterSource) => void
@@ -9,10 +9,10 @@ interface WaterSourceFormProps {
 export default function WaterSourceForm({ onAddWaterSource }: WaterSourceFormProps) {
   const [formData, setFormData] = useState({
     name: '',
-    type: 'mata_air' as const,
+    type: 'mata_air' as WaterSourceType,
     latitude: -4.384,
     longitude: 119.89,
-    quality: 'baik' as const,
+    quality: 'baik' as WaterQuality,
     capacity: 0,
     populationServed: 0,
     address: '',
@@ -134,6 +134,17 @@ export default function WaterSourceForm({ onAddWaterSource }: WaterSourceFormPro
     }
   }
 
+  // Handler untuk perubahan select dengan type assertion yang aman
+  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value as WaterSourceType
+    setFormData(prev => ({ ...prev, type: value }))
+  }
+
+  const handleQualityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value as WaterQuality
+    setFormData(prev => ({ ...prev, quality: value }))
+  }
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
@@ -180,7 +191,7 @@ export default function WaterSourceForm({ onAddWaterSource }: WaterSourceFormPro
                 </label>
                 <select
                   value={formData.type}
-                  onChange={(e) => setFormData({...formData, type: e.target.value as any})}
+                  onChange={handleTypeChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="sumur">Sumur</option>
@@ -197,7 +208,7 @@ export default function WaterSourceForm({ onAddWaterSource }: WaterSourceFormPro
                 </label>
                 <select
                   value={formData.quality}
-                  onChange={(e) => setFormData({...formData, quality: e.target.value as any})}
+                  onChange={handleQualityChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="baik">Baik</option>

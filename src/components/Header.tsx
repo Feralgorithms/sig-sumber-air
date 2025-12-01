@@ -85,10 +85,10 @@ export default function Header() {
                 Visi & Misi
               </h2>
               <p className="text-blue-100 text-sm leading-relaxed">
-                "Mewujudkan pengelolaan sumber daya air yang berkelanjutan, 
+                Mewujudkan pengelolaan sumber daya air yang berkelanjutan, 
                 transparan, dan akuntabel untuk kesejahteraan masyarakat 
                 Kabupaten Soppeng melalui sistem informasi geografis yang 
-                terintegrasi."
+                terintegrasi.
               </p>
             </div>
             
